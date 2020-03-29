@@ -84,19 +84,25 @@ class App extends React.Component {
 
         <table>
           <tbody>
-            {Array.from({ length: 5 }, (v1, y1) => (
-              <tr key={y1}>
-                {Array.from({ length: 5 }, (v2, x1) => (
-                  <Cell
-                    x={x1}
-                    y={y1}
-                    robotX={this.state.x}
-                    robotY={this.state.y}
-                    direction={this.state.direction}
-                  ></Cell>
-                ))}
-              </tr>
-            ))}
+            {Array.from(
+              { length: process.env.REACT_APP_MAX_WIDTH },
+              (v1, y1) => (
+                <tr key={y1}>
+                  {Array.from(
+                    { length: process.env.REACT_APP_MAX_LENGTH },
+                    (v2, x1) => (
+                      <Cell
+                        x={x1}
+                        y={y1}
+                        robotX={this.state.x}
+                        robotY={this.state.y}
+                        direction={this.state.direction}
+                      ></Cell>
+                    )
+                  )}
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>
