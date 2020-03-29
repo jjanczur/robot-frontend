@@ -1,9 +1,7 @@
 import React from "react";
 import logo from "./logo.png";
 import robot from "./rocket.svg";
-import { Table } from "reactstrap";
 import { Button } from "reactstrap";
-import { Form, FormGroup, Label, Input, FormText } from "reactstrap";
 
 import axios from "axios";
 
@@ -94,6 +92,7 @@ class App extends React.Component {
                     y={y1}
                     robotX={this.state.x}
                     robotY={this.state.y}
+                    direction={this.state.direction}
                   ></Cell>
                 ))}
               </tr>
@@ -109,28 +108,14 @@ class App extends React.Component {
   }
 }
 
-class Cell extends React.Component {
-  x;
-  y;
-
-  robotX;
-  robotY;
-
-  constructor(x, y, robotX, robotY) {
-    super();
-    this.x = x;
-    this.y = y;
-    this.robotX = robotX;
-    this.robotY = robotY;
-  }
-
-  render() {
-    return (
-      <td className="cell">
-        <img src={robot} className="App-robot" alt="robot" />
-      </td>
-    );
-  }
-}
+const Cell = ({ x, y, robotX, robotY, direction }) => {
+  return (
+    <td className="cell">
+      {robotX === x && robotY === y ? (
+        <img src={robot} className={direction} alt="robot" />
+      ) : null}
+    </td>
+  );
+};
 
 export default App;

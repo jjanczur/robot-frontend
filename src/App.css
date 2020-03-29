@@ -43,6 +43,16 @@
   height: 6em;
   border: 1px solid #ddd;
 }
+.SOUTH {
+  transform: rotate(180deg);
+}
+
+.EAST {
+  transform: rotate(90deg);
+}
+.WEST {
+  transform: rotate(270deg);
+}
 /* .App-header {
   background-color: #222;
   height: 350px;
